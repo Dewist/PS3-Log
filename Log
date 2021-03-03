@@ -1,0 +1,833 @@
+******* Getting flash type *******
+  Flash type : NOR
+  Reversed : YES
+
+
+******* Getting SKU identification datas *******
+  idps = 0x0C
+  metldr0 = 0xBEEF
+  metldr1 = 0x0000
+  metldrkey = 0x000000000000000000000000
+  bootldr0 = 0xAEED
+  bootldr1 = 0x5CC4
+  bootldrsize = 0xAEF10
+
+  Matching SKU : WARNING!
+   No matching SKU found!
+
+
+******* Getting SDK versions *******
+  ROS0 : 484.000
+  ROS1 : 484.000
+
+
+******* Checking first_region_header *******
+001.01   First Region Header 0x00 Filled Area 0 : OK
+001.02   First Region Header Magic : OK
+001.03   First Region Header 0x00 Filled Area 1 : OK
+
+
+******* Checking flash_format *******
+002.01   Flash Format String : DANGER!
+  At offset : 0x200
+  Actual data (reversed from original) :
+   > 00 00 00 00
+  Expected data :
+   > 49 46 49 00
+
+002.02   Flash Format Version : DANGER!
+  At offset : 0x204
+  Actual data (reversed from original) :
+   > 00 00 00 00 00 00 00 00 00 00 00 00
+  Expected data :
+   > 00 00 00 01 00 00 00 02 00 00 00 00
+
+002.03   Flash Format 0xFF Filled Area : WARNING!
+  All bytes from offset 0x210 to offset 0x400 should be 0xFF.
+  Byte at offset 0x210 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking flash_region_table *******
+003.01   Flash Region Table Header : OK
+003.02   asecure_loader Offset - Length : OK
+003.03   asecure_loader Name : OK
+003.04   eEID Offset - Length : OK
+003.05   eEID Name : OK
+003.06   cISD Offset - Length : OK
+003.07   cISD Name : OK
+003.08   cCSD Offset - Length : OK
+003.09   cCSD Name : OK
+003.10   trvk_prg0 Offset - Length : OK
+003.11   trvk_prg0 Name : OK
+003.12   trvk_prg1 Offset - Length : OK
+003.13   trvk_prg1 Name : OK
+003.14   trvk_pkg0 Offset - Length : OK
+003.15   trvk_pkg0 Name : OK
+003.16   trvk_pkg1 Offset - Length : OK
+003.17   trvk_pkg1 Name : OK
+003.18   ros0 Offset - Length : OK
+003.19   ros0 Name : OK
+003.20   ros1 Offset - Length : OK
+003.21   ros1 Name : OK
+003.22   cvtrm Offset - Length : OK
+003.23   cvtrm Name : DANGER!
+  At offset : 0x600
+  Actual data (reversed from original) :
+   > 00 00 00 01 00 00 00 0B 00 00 00 00 00 EF FC 00
+     00 00 00 00 00 00 04 00 00 00 00 00 00 02 E8 00
+  Expected data :
+   > 63 76 74 72 6D 00 00 00 00 00 00 00 00 00 00 00
+     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+003.24   Flash Region Table 0x00 Filled Area : WARNING!
+  All bytes from offset 0x610 to offset 0x800 should be 0x00.
+  Byte at offset 0x616 has value : 0x04
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking asure_loader_region *******
+004.01   asecure_loader Header : DANGER!
+  At offset : 0x800
+  Actual data (reversed from original) :
+   > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  Expected data :
+   > 00 00 00 01 00 00 00 01 00 00 00 00 00 02 E8 00
+
+004.02   metldr Offset : DANGER!
+  At offset : 0x810
+  Actual data (reversed from original) :
+   > 00 00 00 00 0F AC E0 FF
+  Expected data :
+   > 00 00 00 00 00 00 00 40
+
+004.03   metldr Length : DANGER!
+  At offset : 0x818
+  Actual data (reversed from original) :
+   > 00 00 00 00 DE AD BE EF
+  Expected data (one of the list):
+   > 00 00 00 00 00 00 E7 B0
+   > 00 00 00 00 00 00 E8 C0
+   > 00 00 00 00 00 00 E8 E0
+   > 00 00 00 00 00 00 E8 D0
+   > 00 00 00 00 00 00 EA 60
+   > 00 00 00 00 00 00 E8 90
+   > 00 00 00 00 00 00 E9 20
+   > 00 00 00 00 00 00 E9 60
+   > 00 00 00 00 00 00 F9 20
+   > 00 00 00 00 00 00 F9 B0
+
+004.04   metldr Name : DANGER!
+  At offset : 0x820
+  Actual data (reversed from original) :
+   > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 78 00
+     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  Expected data (one of the list):
+   > 6D 65 74 6C 64 72 00 00 00 00 00 00 00 00 00 00
+     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+   > 6D 65 74 6C 64 72 2E 32 00 00 00 00 00 00 00 00
+     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+004.05   metldr RevKey : DANGER!
+  At offset : 0x840
+  Actual data (reversed from original) :
+   > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  Expected data (one of the list):
+   > 00 00 0E 77 13 62 F2 C2 E6 83 5D 6F C1 44 F2 46
+   > 00 00 0E 88 78 22 C4 1E B9 F0 0F A4 83 0A 0B 69
+   > 00 00 0E 8A 5E 1F 9C ED 75 8B 6B 94 44 2B F0 31
+   > 00 00 0E A2 53 E7 EA 23 78 89 AE 20 32 2A 97 08
+   > 00 00 0E 89 43 B6 EF 4A E2 0F 74 00 C8 80 9E 53
+   > 00 00 0E 85 BC 78 B8 F0 28 79 A8 11 84 A0 DA 74
+   > 00 00 0E 8E 99 87 3B C7 15 F2 80 80 9C 30 22 25
+   > 00 00 0E 92 C3 26 6E 4B BB 28 2E 76 B7 67 70 95
+   > 00 00 0E 92 DB A5 3B 0A B5 18 1D 97 15 24 61 5B
+   > 00 00 0F 8E 6E D7 BC D8 1F 11 EA 34 42 5F 9B 9D
+   > 00 00 0F 8E 65 6E C1 D9 65 95 F8 5C 1F 9C 61 96
+   > 00 00 0F 8E 39 EC F2 D2 AC C0 E0 75 22 48 A9 F8
+   > 00 00 0F 97 C3 6C 2E 43 00 AA CB E6 F6 4F AD 92
+   > 00 00 0F 97 EA 83 83 71 87 8E F0 89 2A 5E F6 B6
+   > 00 00 0F 97 76 45 F7 63 C4 C4 19 B9 BD 87 BD 59
+   > 00 00 0F 97 A2 83 4B 1D FD 96 9C C1 76 95 17 C6
+   > 00 00 0F 97 A6 13 A2 1F 06 BF 3B 13 BD 07 E0 C2
+   > 00 00 0F 97 ED 4C F7 14 FA 8F DF 7E F9 23 9A D2
+   > 00 00 0F 97 F3 75 3D D3 C9 34 D6 09 D3 67 1E 14
+   > 00 00 0F 97 B2 33 32 9B 8D 28 B9 67 C6 5E 20 97
+   > 00 00 0F 97 1F 95 42 03 BE 63 FF C4 73 36 E6 BE
+   > 00 00 0F 97 5D 9D 01 C2 CF DA A4 36 3C 25 66 8A
+   > 00 00 0F 97 18 DD 25 5B A4 B8 44 C3 83 E6 D3 A6
+   > 00 00 0F 97 3D EB AB 70 C6 57 BB 9A 04 A4 08 37
+   > 00 00 0F 97 16 EB 34 DC DF C0 62 5C 34 DB 99 20
+
+004.06   metldr Binary Size : DANGER!
+  At offset : 0x850
+  Actual data (reversed from original) :
+   > 00 00 00 00
+  Expected data (one of the list):
+   > 00 00 0E 77
+   > 00 00 0E 88
+   > 00 00 0E 8A
+   > 00 00 0E A2
+   > 00 00 0E 89
+   > 00 00 0E 85
+   > 00 00 0E 8E
+   > 00 00 0E 92
+   > 00 00 0F 8E
+   > 00 00 0F 97
+
+004.07   metldr Statistics : DANGER!
+  Any bytes from offset 0x840 to offset 0x880 should be less than 0.52%.
+    0x00 is 100.00%
+004.08   asecure_loader 0x00 Filled Area : WARNING!
+  All bytes from offset 0x880 to offset 0x2F000 should be 0x00.
+  Byte at offset 0xA14 has value : 0x0F
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking eEID_region *******
+005.01   eEID Header : OK
+005.02   EID0 Offset - Length : OK
+005.03   EID1 Offset - Length : OK
+005.04   EID2 Offset - Length : OK
+005.05   EID3 Offset - Length : OK
+005.06   EID4 Offset - Length : OK
+005.07   EID5 Offset - Length : OK
+005.08   EID0 IDPS0 : OK
+005.09   EID0 IDPS1 : OK
+005.10   EID0 Static : OK
+005.11   EID2 BlockSize/Padding : DANGER!
+  At offset : 0x2FB70
+  Actual data (reversed from original) :
+   > D0 AD 47 E0 14 32 4B 17 F3 DA 78 31 21 B5 A4 9D
+     85 C5 FC 5A 41 AE 49 6C 54 BE C8 D7 D0 D3 C1 D1
+  Expected data :
+   > 00 80 06 90 00 00 00 00 00 00 00 00 00 00 00 00
+     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+005.12   EID3 Static0 : DANGER!
+  At offset : 0x302A0
+  Actual data (reversed from original) :
+   > 1D A5 5B BD
+  Expected data :
+   > 00 00 00 01
+
+005.13   EID3 Static1 : DANGER!
+  At offset : 0x302A8
+  Actual data (reversed from original) :
+   > 40 FA AE 88
+  Expected data :
+   > 00 00 00 00
+
+005.14   EID3 Static2 : DANGER!
+  At offset : 0x302B0
+  Actual data (reversed from original) :
+   > 77 C0 7A A7
+  Expected data :
+   > 00 01 00 D0
+
+005.15   EID5 IDPS0 : DANGER!
+  At offset : 0x303D0
+  Actual data (reversed from original) :
+   > A0 3C 14 A7 C9 DA
+  Expected data (one of the list):
+   > 00 00 00 01 00 82
+   > 00 00 00 01 00 83
+   > 00 00 00 01 00 84
+   > 00 00 00 01 00 85
+   > 00 00 00 01 00 86
+   > 00 00 00 01 00 87
+   > 00 00 00 01 00 88
+   > 00 00 00 01 00 89
+   > 00 00 00 01 00 8A
+   > 00 00 00 01 00 8B
+   > 00 00 00 01 00 8C
+   > 00 00 00 01 00 8E
+   > 00 00 00 01 00 8F
+
+005.16   EID5 IDPS1 : DANGER!
+  At offset : 0x303D6
+  Actual data (reversed from original) :
+   > AC 76
+  Expected data (one of the list):
+   > 00 01
+   > 00 02
+   > 00 03
+   > 00 04
+   > 00 05
+   > 00 06
+   > 00 07
+   > 00 08
+   > 00 09
+   > 00 0A
+   > 00 0B
+   > 00 0C
+   > 00 0D
+   > 00 0E
+   > 00 0F
+   > 00 10
+   > 00 11
+   > 00 12
+   > 00 13
+   > 00 14
+
+005.17   EID5 Static : DANGER!
+  At offset : 0x303E0
+  Actual data (reversed from original) :
+   > DA 68 CD AE
+  Expected data :
+   > 00 12 07 30
+
+005.18   eEID Region 0xFF Filled Area : WARNING!
+  All bytes from offset 0x30DD0 to offset 0x3F000 should be 0xFF.
+  Byte at offset 0x30DD0 has value : 0xBD
+  Subsequent bytes in the range may be wrong as well.
+
+005.19   eEID Statistics0 : DANGER!
+  Any bytes from offset 0x2F080 to offset 0x2FB70 should be less than 1.2%.
+    0x00 is 10.00%
+005.20   eEID Statistics1 : OK
+
+
+******* Checking cISD_region *******
+006.01   cISD Header : OK
+006.02   cISD0 Offset - Length : OK
+006.03   cISD1 Offset - Length : OK
+006.04   cISD2 Offset - Length : OK
+006.05   cISD0 0xFF Filled Area : OK
+006.06   cISD1 IDLog Header : OK
+006.07   cISD1 Semistatic 1 : OK
+006.08   cISD1 Semistatic 2 : OK
+006.09   cISD1 0xFF Filled Area 0 : OK
+006.10   cISD1 Static : OK
+006.11   cISD1 Semistatic 3 : OK
+006.12   cISD1 0xFF Filled Area 1 : WARNING!
+  All bytes from offset 0x3F0C8 to offset 0x3F260 should be 0xFF.
+  Byte at offset 0x3F200 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+006.13   cISD1 Statistics : OK
+006.14   cISD2 : DANGER!
+  At offset : 0x3F260
+  Actual data (reversed from original) :
+   > 7F 49 44 4C 00 02 00 60 01 00 00 02 03 12 4A 41
+  Expected data (one of the list):
+   > 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+   > 1F FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+   > 07 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+   > 3F FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+006.15   cISD 0xFF Filled Area : WARNING!
+  All bytes from offset 0x3F270 to offset 0x3F800 should be 0xFF.
+  Byte at offset 0x3F270 has value : 0x30
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking cCSD_region *******
+007.01   cCSD Header : DANGER!
+  At offset : 0x3F800
+  Actual data (reversed from original) :
+   > 00 00 00 03 00 00 02 70 00 00 00 00 00 00 00 00
+  Expected data :
+   > 00 00 00 01 00 00 08 00 00 00 00 00 00 00 00 00
+
+007.02   cCSD Entry Table : DANGER!
+  At offset : 0x3F810
+  Actual data (reversed from original) :
+   > 00 00 00 40 00 00 00 20 00 00 00 00 00 00 00 00
+  Expected data :
+   > 00 00 00 20 00 00 00 30 00 00 00 00 00 00 00 00
+
+007.03   cCSD 0xFF Filled Area : WARNING!
+  All bytes from offset 0x3F820 to offset 0x40000 should be 0xFF.
+  Byte at offset 0x3F820 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking Revokation_region *******
+008.01   trvk_prg0 SCE : OK
+008.02   trvk_prg0 Hash : WARNING!
+  Size = 0x2E0
+  MD5 = F18F0BC838A53A6DB9BDFB78D70E4CD7
+  Version = (unknown)
+
+008.02   trvk_prg0 0xFF filled area : WARNING!
+  All bytes from offset 0x40FF0 to offset 0x60000 should be 0xFF.
+  Byte at offset 0x40FF0 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+008.03   trvk_prg1 SCE : OK
+008.04   trvk_prg1 Hash : WARNING!
+  Size = 0x2E0
+  MD5 = F18F0BC838A53A6DB9BDFB78D70E4CD7
+  Version = (unknown)
+
+008.04   trvk_prg1 0xFF filled area : WARNING!
+  All bytes from offset 0x60FF0 to offset 0x80000 should be 0xFF.
+  Byte at offset 0x60FF0 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+008.05   trvk_pkg0 SCE : OK
+008.06   trvk_pkg0 0xFF filled area : WARNING!
+  All bytes from offset 0x80FF0 to offset 0xA0000 should be 0xFF.
+  Byte at offset 0x80FF0 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+008.07   trvk_pkg1 SCE : OK
+008.08   trvk_pkg1 0xFF filled area : WARNING!
+  All bytes from offset 0xA0FF0 to offset 0xC0000 should be 0xFF.
+  Byte at offset 0xA0FF0 has value : 0x00
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking CoreOS_region *******
+009.01   ROS0 Header : OK
+009.02   ROS0 Hash : OK
+  Size = 0x6FFFE0
+  MD5 = E2396DD395E095128BCB69AABA2D1978
+  Version = 4.84 CEX/SEX OFW/HFW
+
+009.03   ROS0 unused 0xFF Filled Area : WARNING!
+  All bytes from offset 0x7BFFF0 to offset 0x7C0000 should be 0xFF.
+  Byte at offset 0x7BFFF0 has value : 0xE9
+  Subsequent bytes in the range may be wrong as well.
+
+009.04   ROS1 Header : OK
+009.05   ROS1 Hash : OK
+  Size = 0x6FFFE0
+  MD5 = E2396DD395E095128BCB69AABA2D1978
+  Version = 4.84 CEX/SEX OFW/HFW
+
+009.06   ROS1 unused 0xFF Filled Area : WARNING!
+  All bytes from offset 0xEBFFF0 to offset 0xEC0000 should be 0xFF.
+  Byte at offset 0xEBFFF0 has value : 0xDD
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking cvtrm_region *******
+010.01   Pre cvtrm 0xFF Filled Area : WARNING!
+  All bytes from offset 0xEBFFF0 to offset 0xEC0000 should be 0xFF.
+  Byte at offset 0xEBFFF0 has value : 0xDD
+  Subsequent bytes in the range may be wrong as well.
+
+010.02   cvtrm0 Header : DANGER!
+  At offset : 0xEC0000
+  Actual data (reversed from original) :
+   > D9 BB 16 F8 1B 61 9B 85 E8 1E 3C 6A C8 EB 72 B9
+  Expected data (one of the list):
+   > 53 43 45 49 FF FD FF FF FF FF FF FF FF FF FF FF
+   > 53 43 45 49 FF FF FF FF FF FF FF FF FF FF FF FF
+   > 00 00 00 00 FF FD FF FF FF FF FF FF FF FF FF FF
+   > 00 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF
+
+010.03   cvtrm0 0xFF Filled Area : WARNING!
+  All bytes from offset 0xEC0010 to offset 0xEC4000 should be 0xFF.
+  Byte at offset 0xEC0010 has value : 0xA0
+  Subsequent bytes in the range may be wrong as well.
+
+010.04   vtrm0 Magic : DANGER!
+  At offset : 0xEC4000
+  Actual data (reversed from original) :
+   > 06 00 00 EA 40 EE 8D E2 46 EF 8E E2 03 E1
+  Expected data :
+   > 00 00 00 00 56 54 52 4D 00 00 00 00 00 00
+
+010.05   vtrm0 Reserved Entries : DANGER!
+  At offset : 0xEC4028
+  Actual data (reversed from original) :
+   > 40 3E 8D E2 46 3F 83 E2
+  Expected data :
+   > 00 00 00 00 00 00 02 09
+
+010.07   cvtrm1 Header : DANGER!
+  At offset : 0xEE0000
+  Actual data (reversed from original) :
+   > FE 85 FF B1 1F 89 79 2B 8B 76 CC C2 18 CE 8A 2D
+  Expected data (one of the list):
+   > 53 43 45 49 FF FD FF FF FF FF FF FF FF FF FF FF
+   > 53 43 45 49 FF FF FF FF FF FF FF FF FF FF FF FF
+   > 00 00 00 00 FF FD FF FF FF FF FF FF FF FF FF FF
+   > 00 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF
+
+010.08   cvtrm1 0xFF Filled Area : WARNING!
+  All bytes from offset 0xEE0010 to offset 0xEE4000 should be 0xFF.
+  Byte at offset 0xEE0010 has value : 0xF3
+  Subsequent bytes in the range may be wrong as well.
+
+010.09   vtrm1 Magic : DANGER!
+  At offset : 0xEE4000
+  Actual data (reversed from original) :
+   > 3C E1 69 AD 27 3C B9 17 7C 42 9C AF 0D D9
+  Expected data :
+   > 00 00 00 00 56 54 52 4D 00 00 00 00 00 00
+
+010.10   vtrm1 Reserved Entries : DANGER!
+  At offset : 0xEE4028
+  Actual data (reversed from original) :
+   > A7 0F 42 86 46 B0 BA ED
+  Expected data :
+   > 00 00 00 00 00 00 02 09
+
+
+
+******* Checking Second_Region_Header *******
+011.01   Second Region Header 0x00 Filled Area 0 : WARNING!
+  All bytes from offset 0xF00000 to offset 0xF00010 should be 0x00.
+  Byte at offset 0xF00000 has value : 0x35
+  Subsequent bytes in the range may be wrong as well.
+
+011.02   Second Region Header Magic : DANGER!
+  At offset : 0xF00010
+  Actual data (reversed from original) :
+   > 9D 22 61 16 25 BE D6 E5 53 2E 2B F8 31 15 0E 06
+  Expected data :
+   > 00 00 00 00 0F AC E0 FF 00 00 00 00 DE AD FA CE
+
+011.03   Second Region Header Count : DANGER!
+  At offset : 0xF00020
+  Actual data (reversed from original) :
+   > 6D 79 0F 31 84 F4 E7 06
+  Expected data :
+   > 00 00 00 00 00 00 00 03
+
+011.04   Second Region Header 0x00 Filled Area 1 : WARNING!
+  All bytes from offset 0xF00030 to offset 0xF000C0 should be 0x00.
+  Byte at offset 0xF00030 has value : 0xFD
+  Subsequent bytes in the range may be wrong as well.
+
+011.05   Second Region Unknown Block 0 : DANGER!
+  At offset : 0xF000C0
+  Actual data (reversed from original) :
+   > B5 5D 0D E4 89 84 E0 00 42 C7 1C 5F CB 92 D3 F9
+     DA 3C 8B 93 CC E2 B8 40 34 90 F4 CE 38 45 2F 83
+     B7 7F 94 B4 47 78 A2 41 E4 EB 3C 76 F8 AB 6F CC
+  Expected data :
+   > 00 00 00 00 00 00 79 00 00 00 00 00 00 00 01 00
+     10 70 00 00 01 00 00 01 00 00 00 00 00 00 00 03
+     10 70 00 00 02 00 00 01 00 00 00 00 00 00 00 03
+
+011.06   Second Region Header 0x00 Filled Area 2 : WARNING!
+  All bytes from offset 0xF000F0 to offset 0xF00150 should be 0x00.
+  Byte at offset 0xF000F0 has value : 0x6A
+  Subsequent bytes in the range may be wrong as well.
+
+011.07   Second Region Unknown Block 1 : DANGER!
+  At offset : 0xF00150
+  Actual data (reversed from original) :
+   > 79 82 07 7C C4 9B D6 36 D3 E6 2D 72 71 FF 66 62
+     4A AB A1 DF 0D 89 FE 43 29 E6 BA E4 68 AB D3 CC
+     95 B1 16 D0 01 A2 2E D0 5E 02 7D F0 6A B2 1C 30
+  Expected data :
+   > 00 00 00 00 00 00 7A 00 00 00 00 00 00 00 04 00
+     10 70 00 00 01 00 00 01 00 00 00 00 00 00 00 03
+     10 70 00 00 02 00 00 01 00 00 00 00 00 00 00 03
+
+011.08   Second Region Header 0x00 Filled Area 3 : WARNING!
+  All bytes from offset 0xF00180 to offset 0xF00800 should be 0x00.
+  Byte at offset 0xF00180 has value : 0xCA
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking Unreferenced_Area *******
+012.01   unreferenced area 0xFF Filled : WARNING!
+  All bytes from offset 0xF01000 to offset 0xF20000 should be 0xFF.
+  Byte at offset 0xF01000 has value : 0xDA
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking CELL_EXTNOR_AREA_Region *******
+013.01   CELL_EXTNOR_AREA Header : DANGER!
+  At offset : 0xF20000
+  Actual data (reversed from original) :
+   > 03 6A E4 33 D1 9B 74 57 B8 CE DC BC 86 E3 B5 E3
+  Expected data :
+   > 43 45 4C 4C 5F 45 58 54 4E 4F 52 5F 41 52 45 41
+
+013.02   CELL_EXTNOR_AREA 0x00 Filled Area 0 : WARNING!
+  All bytes from offset 0xF20040 to offset 0xF20200 should be 0x00.
+  Byte at offset 0xF20040 has value : 0xE5
+  Subsequent bytes in the range may be wrong as well.
+
+013.03   CELL_EXTNOR_AREA 0x00 Filled Area 1 : WARNING!
+  All bytes from offset 0xF20240 to offset 0xF40000 should be 0x00.
+  Byte at offset 0xF20240 has value : 0xE5
+  Subsequent bytes in the range may be wrong as well.
+
+013.04   CELL_EXTNOR_AREA 0x00 Filled Area 2 : WARNING!
+  All bytes from offset 0xF40030 to offset 0xF60000 should be 0x00.
+  Byte at offset 0xF40030 has value : 0x6A
+  Subsequent bytes in the range may be wrong as well.
+
+013.05   CELL_EXTNOR_AREA 0x00 Filled Area 3 : WARNING!
+  All bytes from offset 0xF64920 to offset 0xF69400 should be 0x00.
+  Byte at offset 0xF64920 has value : 0x86
+  Subsequent bytes in the range may be wrong as well.
+
+013.06   CELL_EXTNOR_AREA 0xFF Filled Area 0 : WARNING!
+  All bytes from offset 0xF69C00 to offset 0xF80000 should be 0xFF.
+  Byte at offset 0xF69C00 has value : 0xEE
+  Subsequent bytes in the range may be wrong as well.
+
+013.07   CELL_EXTNOR_AREA 0x00 Filled Area 5 : WARNING!
+  All bytes from offset 0xF80030 to offset 0xFA0000 should be 0x00.
+  Byte at offset 0xF80030 has value : 0xFD
+  Subsequent bytes in the range may be wrong as well.
+
+013.08   CELL_EXTNOR_AREA 0x00 Filled Area 6 : OK
+013.09   CELL_EXTNOR_AREA 0xFF Filled Area 1 : WARNING!
+  All bytes from offset 0xFA9C00 to offset 0xFC0000 should be 0xFF.
+  Byte at offset 0xFA9C00 has value : 0xC8
+  Subsequent bytes in the range may be wrong as well.
+
+
+
+******* Checking bootldr_region *******
+014.01   bootldr0 : DANGER!
+  At offset : 0xFC0000
+  Actual data (reversed from original) :
+   > 6D FE AE ED
+  Expected data (one of the list):
+   > 00 00 2F 1C
+   > 00 00 2E F4
+   > 00 00 2E E3
+   > 00 00 2E AB
+   > 00 00 2E B3
+   > 00 00 2F 13
+   > 00 00 2F 3B
+   > 00 00 2F 4B
+   > 00 00 2F 53
+   > 00 00 2F 5B
+   > 00 00 2F FB
+   > 00 00 30 03
+   > 00 00 30 0B
+   > 00 00 30 1B
+
+014.02   bootldr1 : DANGER!
+  At offset : 0xFC0010
+  Actual data (reversed from original) :
+   > C1 16 5C C4
+  Expected data (one of the list):
+   > 00 00 2F 1C
+   > 00 00 2E F4
+   > 00 00 2E E3
+   > 00 00 2E AB
+   > 00 00 2E B3
+   > 00 00 2F 13
+   > 00 00 2F 3B
+   > 00 00 2F 4B
+   > 00 00 2F 53
+   > 00 00 2F 5B
+   > 00 00 2F FB
+   > 00 00 30 03
+   > 00 00 30 0B
+   > 00 00 30 1B
+
+014.03   bootldr Rev key : DANGER!
+  At offset : 0xFC0004
+  Actual data (reversed from original) :
+   > 5A 4E 44 58 43 C9 34 86 5A 88 99 6D
+  Expected data (one of the list):
+   > 06 5B 86 0C 5C F7 6A C4 59 8D D7 B4
+   > 89 EF FD 15 B3 85 0E 3B 2A 73 44 84
+   > 6E ED 04 A0 4E 41 53 2A C1 23 C7 18
+   > E6 44 A0 75 B6 0B 79 96 C1 29 7A A0
+   > 7B 09 CB EE 00 2F AF 51 59 F8 D5 A8
+   > ED 4C 79 D6 5D 60 28 76 FF AD A6 FD
+   > B1 94 34 A3 3C F1 C8 66 DF 42 0E 50
+   > 83 EF B9 76 C4 DE D1 35 32 7C D3 77
+   > 61 D1 9B A5 41 68 16 3C 01 9F 88 4B
+   > 92 AC 2C 21 57 A5 77 C8 4D DF EC DB
+   > 41 F7 93 C7 09 41 8F 93 89 44 BA 7A
+   > FA 46 EC 86 57 0F CA AA 06 4E 8A 86
+   > F5 A2 21 B5 C0 5F 21 42 01 97 9D AA
+   > 77 80 B1 34 B6 DF 25 8A 1A BB AB 4D
+   > CB 9E 15 24 28 B4 4F D2 F9 3F BC 43
+   > EF B3 45 5D 6A 9F D7 51 00 5E 34 BC
+   > 53 92 1C E7 F7 33 41 76 9B 7A 1E D6
+   > 53 E6 A0 BB B0 AF A2 00 67 D0 B3 9A
+   > AA 3A EA 6E 3D A0 9A 58 1E 1E 21 00
+   > C5 A4 27 71 EE 5E 21 9A 3B FC 2C 45
+   > 13 EC A7 4A 8E 14 D4 73 12 91 28 E8
+   > 63 B9 D9 81 30 DB 7B B0 F3 9D 12 4F
+   > BB CC BF 29 EC D8 02 84 4E B2 8A E6
+   > 2E 60 41 04 D9 43 D1 B5 34 D4 C5 F5
+   > 1F DC 1E 2D F0 0D A3 67 01 E2 F8 F6
+   > 6F C7 33 26 24 24 65 AE 91 5F 6E D9
+   > 84 D9 14 5F 34 53 E0 F6 B1 4D 5F 6E
+   > EF A7 05 0F A2 54 7E 11 4F B2 D5 BC
+   > D3 85 A0 89 30 F3 65 2E 3C 16 D5 B5
+   > 4B 3C 0C 95 18 2D 43 E9 8D 7B C2 86
+   > CB AA F7 B8 EB 4A 6D 76 41 E1 E6 8E
+   > 21 A5 99 A0 B8 0D 4D BE 8D 4D 55 9A
+   > 6E BC CF 18 F9 06 39 94 49 E5 CB 06
+   > C2 08 8D 62 3A 38 EF E1 A5 8F 08 09
+
+014.04   bootldr Statistics : OK
+014.05   bootldr 0xFF Filled Area : OK
+
+
+******* Checking datamatches *******
+bootldr size : DANGER!
+  Following datas should be the same :
+  bootldr0 at offset 0xFC0000 length 0x4
+   > 6D FE AE ED
+  bootldr1 at offset 0xFC0010 length 0x4
+   > C1 16 5C C4
+
+per console nonce : DANGER!
+  Following datas should be the same :
+  metldr at offset 0x854 length 0xC
+   > 00 00 00 00 00 00 00 00 00 00 00 00
+  eid0 at offset 0x2F084 length 0xC
+   > 16 DC 26 82 04 6C CC 83 13 AD 9B C0
+  eid3 at offset 0x302B4 length 0xC
+   > 82 E1 CA 9D F9 3A E4 83 06 D6 EA 46
+  eid5 at offset 0x303E4 length 0xC
+   > 16 84 C2 53 B9 83 77 08 A3 F6 32 23
+  bootldr at offset 0xFC0014 length 0xC
+   > 21 33 82 96 EF 2E 71 C5 00 D1 AB 4B
+
+CELL_EXTNOR_AREA Hash1 : DANGER!
+  Following datas should be the same :
+  CELL_EXTNOR_AREA F40000 Hash at offset 0xF40000 length 0x30
+   > 6D FE AE ED 5A 4E 44 58 43 C9 34 86 5A 88 99 6D
+     C1 16 5C C4 21 33 82 96 EF 2E 71 C5 00 D1 AB 4B
+     DE A2 99 7E C2 B5 81 34 E8 52 B2 15 7D 47 16 03
+  CELL_EXTNOR_AREA F80000 Hash at offset 0xF80000 length 0x30
+   > 35 E4 1A E3 FD 03 18 13 7D 41 5E B5 D7 6D 0F E9
+     9D 22 61 16 25 BE D6 E5 53 2E 2B F8 31 15 0E 06
+     6D 79 0F 31 84 F4 E7 06 19 D8 C0 DA 7D 9E BF D5
+
+CELL_EXTNOR_AREA Hash2 : DANGER!
+  Following datas should be the same :
+  CELL_EXTNOR_AREA F60000 Hash at offset 0xF60000 length 0x100
+   > 11 CD 9D 31 CA F3 9B 3A 78 27 23 59 5D 39 49 14
+     64 64 23 E0 53 2D 9F 7E 39 F0 6F 23 32 57 BB F4
+     5D E6 7E D8 DA BD 38 64 B0 B8 5F 19 AB 1D 70 83
+     D9 27 4A DC 43 9C 15 BC 8A F2 48 21 5D 90 6F D2
+     CE CD 61 22 3F D8 91 40 69 B7 A6 EB D5 E1 52 91
+     B9 DD E7 C3 D7 03 A7 4E 83 12 4C 0B 73 0A 57 D9
+     F4 38 F7 9E C4 B0 3E B2 4E AC C7 C0 37 5A 1B 99
+     A9 DB 1C 6A 89 C8 2B 5B AA A0 9A C0 71 27 C3 76
+     B5 50 AB 32 F9 B4 58 C0 D0 E9 DC 2E FC 27 C1 9F
+     4C F4 5B 3F 83 B5 E3 6B 47 D3 A8 B9 50 7A 9C 48
+     D1 A0 D8 CA F7 D1 CD 0C A4 90 6F 93 D9 F6 6F D6
+     5A 44 B9 57 D9 33 8E 29 51 21 E8 BD BE D4 1B 4C
+     73 DE B8 42 CF D9 1F FD 31 DF 01 71 3A 9B 41 AF
+     AA D6 C0 D4 D6 6B E1 41 9B C3 AE 4A 6A 4B CB 51
+     44 CD 89 E6 A9 1F 8C 35 51 22 63 52 21 8D CB 10
+     40 E6 44 BD A7 C1 C5 D5 0C 32 87 6A 39 2E 2F A6
+  CELL_EXTNOR_AREA FA0000 Hash at offset 0xFA0000 length 0x100
+   > 03 6A E4 33 D1 9B 74 57 B8 CE DC BC 86 E3 B5 E3
+     91 7F FC 66 2D BA 3D 7A 6F 05 4B 5C 51 96 CE 1A
+     8E E4 CC 21 AB 76 8C B4 49 E0 85 42 91 B4 C9 49
+     5A 8F 2E 00 AC 0D 47 D5 8A 56 6A D2 29 3D 5F 64
+     E5 19 02 0C 56 6D A3 C4 EB 41 24 A1 2C 9E AD 21
+     70 8A E1 C9 74 4E F1 4F 2A 73 29 81 8C 62 2C 8A
+     4B 17 BD 80 9D 21 26 37 28 99 6E 12 8A 2E 2F 9C
+     5A 96 03 8D F5 96 BB 19 BE F6 00 4B A3 A6 BF 9F
+     96 64 98 2A 18 22 4E FA 72 14 0E 94 07 CE D6 DF
+     98 9B 72 CD C5 58 81 98 8E 79 EF 0C 89 FD 8B B8
+     B5 FC 30 8B E1 95 8B D6 19 B0 4A C6 4F 2C 46 44
+     3B 1E 0E 21 9F 62 41 97 19 13 43 B0 0D C3 36 4F
+     4C A9 A8 16 E2 04 86 6C 6B 9B 4E 00 BD 02 AC 34
+     82 ED 91 74 EB 84 4C 26 10 32 CC B8 A3 C0 D1 49
+     62 AF 13 F4 40 5D 77 D4 B5 07 F8 EE 76 A0 C8 7B
+     93 AD 5B 69 C0 6F B2 F4 84 46 68 5A E3 92 A5 95
+
+metldr size : OK
+vtrm0 : DANGER!
+  Following datas should be the same :
+  repetitions seq. 1 at offset 0xEDD748 length 0x14, repeted 0xC7 time
+    (too long to dilplay)
+  repetitions seq. 2 at offset 0xEDE6E8 length 0x14, repeted 0x141 time
+    (too long to dilplay)
+
+vtrm1 : DANGER!
+  Following datas should be the same :
+  repetitions seq. 1 at offset 0xEFD748 length 0x14, repeted 0xC7 time
+    (too long to dilplay)
+  repetitions seq. 2 at offset 0xEFE6E8 length 0x14, repeted 0x141 time
+    (too long to dilplay)
+
+
+
+******* Checking repetitions *******
+Header Magic0 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x10 :
+   > 00 00 00 00 0F AC E0 FF 00 00 00 00 DE AD BE EF
+  Repetition(s) found at offset(s) :
+    0x210, 0x810, 0xA10
+
+asecure_loader Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x420 :
+   > 61 73 65 63 75 72 65 5F 6C 6F 61 64 65 72 00 00
+  Repetition(s) found at offset(s) :
+    0x620, 0xC20, 0xE20
+
+eEID Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x450 :
+   > 65 45 49 44 00 00 00 00 00 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x650, 0xC50, 0xE50
+
+cISD Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x480 :
+   > 63 49 53 44 00 00 00 00 00 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x680, 0xC80, 0xE80
+
+cCSD Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x4B0 :
+   > 63 43 53 44 00 00 00 00 00 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x6B0, 0xCB0, 0xEB0
+
+trvk_prg0 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x4E0 :
+   > 74 72 76 6B 5F 70 72 67 30 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x6E0, 0xCE0, 0xEE0
+
+trvk_prg1 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x510 :
+   > 74 72 76 6B 5F 70 72 67 31 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x710, 0xD10, 0xF10
+
+trvk_pkg0 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x540 :
+   > 74 72 76 6B 5F 70 6B 67 30 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x740, 0xD40, 0xF40
+
+trvk_pkg1 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x570 :
+   > 74 72 76 6B 5F 70 6B 67 31 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x770, 0xD70, 0xF70
+
+ros0 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x5A0 :
+   > 72 6F 73 30 00 00 00 00 00 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x7A0, 0xDA0, 0xFA0
+
+ros1 Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x5D0 :
+   > 72 6F 73 31 00 00 00 00 00 00 00 00 00 00 00 00
+  Repetition(s) found at offset(s) :
+    0x7D0, 0xDD0, 0xFD0
+
+cvtrm Repetitions : DANGER!
+  Following data (reversed) expected at offset 0x600 :
+   > 63 76 74 72 6D 00 00 00 00 00 00 00 00 00 00 00
+    No matching data found!
